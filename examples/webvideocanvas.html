@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <script src="../build/webvideocanvas.js"></script>
+
+    <script>
+      /**
+       * Setup all visualization elements when the page is loaded.
+       */
+      function init() {
+        // Create the main viewer.
+        var viewer = new WebVideoCanvas.Viewer({
+          divID: 'mjpeg',
+          host: 'localhost',
+          port: '8080', // web_video_server default port
+          width: 640,
+          height: 480,
+          topic: '/usb_cam_node/image_raw',
+          type: 'png', // you can change to mjpeg, png, or ros_compressed
+        });
+      }
+    </script>
+  </head>
+
+  <body onload="init()">
+    <h1>Simple Web Video Canvas Example</h1>
+    <p>
+      Run the following commands in the terminal then refresh this page.
+      <br />This assumes that you have installed
+      <a href="http://wiki.ros.org/usb_cam">use_cam</a> and
+      <a href="http://wiki.ros.org/web_video_server">web_video_server</a>
+    </p>
+    <ol>
+      <li><tt>rosrun usb_cam usb_cam_node</tt></li>
+      <li><tt>rosrun web_video_server web_video_server</tt></li>
+    </ol>
+    <div id="mjpeg"></div>
+  </body>
+</html>

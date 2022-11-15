@@ -1,4 +1,4 @@
-# mjpegcanvasjs [![Build Status](https://api.travis-ci.org/rctoris/mjpegcanvasjs.png)](https://travis-ci.org/rctoris/mjpegcanvasjs)
+# web-video-canvas [![Build Status](https://api.travis-ci.org/rctoris/mjpegcanvasjs.png)](https://travis-ci.org/rctoris/mjpegcanvasjs)
 
 **Display a Video Stream from the ROS web_video_server Inside of a HTML5 Canvas**
 
