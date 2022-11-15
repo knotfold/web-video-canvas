@@ -8,6 +8,7 @@
   "bugs": {
     "url": "https://github.com/Techming/web-video-canvas"
   },
+  "private": false,
   "main": "/build/webvideocanvas.js",
   "files": [
     "build/**/*"
