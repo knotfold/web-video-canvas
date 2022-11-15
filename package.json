@@ -12,6 +12,9 @@
   "files": [
     "build/**/*"
   ],
+  "engines": {
+    "node": ">=14.18.3"
+  },
   "devDependencies": {
     "@babel/cli": "^7.19.3",
     "@babel/core": "^7.20.2",
