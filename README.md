@@ -4,25 +4,42 @@
 
 This repo is a fork from and developed based on [mjpegcanvas](https://github.com/rctoris/mjpegcanvasjs) by [Russell Toris](https://github.com/rctoris) (russell.toris@gmail.com). Thanks for all the previous effort.
 
-Still WIP to publish this package to ROS distro [2022-11-15]
+**Still WIP to publish this package to ROS distro as well as ROS wiki [2022-11-15]**
 
 ~~For full documentation, see [the ROS wiki](http://ros.org/wiki/mjpegcanvasjs) or check out some [working demos](http://robotwebtools.org/).~~
-
-~~[JSDoc](http://robotwebtools.org/jsdoc/mjpegcanvasjs/current/) can be found on the Robot Web Tools website.~~
 
 This project is released as part of the [Robot Web Tools](http://robotwebtools.org/) effort.
 
 ## Usage
 
+### npm
+
+It is recommended that you import this package via npm or yarn. Simply run
+
+```bash
+npm install @techming/web-video-canvas // or
+yarn add @techming/web-video-canvas
+```
+
+Once you installed the package, you can import the `View` or `MultiStreamViewer` in your file:
+
+```javascript
+import { View } from '@techming/web-video-canvas';
+
+const viewer = new Viewer({
+  divID: 'mjpeg',
+  host: 'localhost',
+  port: '8080', // web_video_server default port
+  width: 640,
+  height: 480,
+  topic: '/usb_cam_node/image_raw',
+  type: 'png', // you can change to mjpeg, png, or ros_compressed
+});
+```
+
+### Static Import
+
 Pre-built files can be found in [webvideocanvas.js](build/webvideocanvas.js)
-
-~~Alternatively, you can use the current release via the Robot Web Tools CDN: ([full](http://cdn.robotwebtools.org/mjpegcanvasjs/current/mjpegcanvas.js)) | ([min](http://cdn.robotwebtools.org/mjpegcanvasjs/current/mjpegcanvas.min.js))~~
-
-## Dependencies
-
-web-video-canvas depends on:
-
-[EventEmitter2](https://github.com/hij1nx/EventEmitter2). The current supported version is 0.4.14. The current supported version can be found on the Robot Web Tools CDN: ([full](http://cdn.robotwebtools.org/EventEmitter2/0.4.14/eventemitter2.js)) | ([min](http://cdn.robotwebtools.org/EventEmitter2/0.4.14/eventemitter2.min.js))
 
 ## Build
 
