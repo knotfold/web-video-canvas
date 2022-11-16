@@ -7,9 +7,9 @@
  */
 class Button {
   /**
-   * @param options - possible keys include:
-   * * text - the text to display on the button
-   * * height - the height of the button
+   * @param {Object} options - possible keys include:
+   * @param {string} options.text - the text to display on the button
+   * @param {number} options.height - the height of the button
    */
   constructor(options) {
     options = options || {};

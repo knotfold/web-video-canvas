@@ -17,15 +17,15 @@ class MultiStreamViewer extends EventEmitter2 {
   /**
    *
    * @param {Object} options - possible keys include:
-   *   * divID - the ID of the HTML div to place the canvas in
-   *   * width - the width of the canvas
-   *   * height - the height of the canvas
-   *   * host - the hostname of the MJPEG server
-   *   * port (optional) - the port to connect to
-   *   * quality (optional) - the quality of the stream (from 1-100)
-   *   * topics - an array of topics to stream
-   *   * labels (optional) - an array of labels associated with each topic
-   *   * defaultStream (optional) - the index of the default stream to use
+   * @param {string} options.divID - the ID of the HTML div to place the canvas in
+   * @param {number} options.width - the width of the canvas
+   * @param {number} options.height - the height of the canvas
+   * @param {string} options.host - the hostname of the MJPEG server
+   * @param {number} [options.port] (optional) - the port to connect to
+   * @param {number} [options.quality] (optional) - the quality of the stream (from 1-100)
+   * @param {[string]} options.topics - an array of topics to stream
+   * @param {[string]} [options.labels] (optional) - an array of labels associated with each topic
+   * @param {number} [options.defaultStream] (optional) - the index of the default stream to use
    */
   constructor(options) {
     super();
