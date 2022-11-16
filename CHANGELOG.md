@@ -2,6 +2,11 @@
 
 For change log from mjpegcanvas, please refer to: https://github.com/rctoris/mjpegcanvasjs/blob/develop/CHANGELOG.md
 
+2022-11-15 - **0.1.1-0.1.3**
+
+- fix import module could not found bug
+- update documentations
+
 2022-11-15 - **0.1.0**
 
 - Suport mjpeg, png, and ros_compressed encoding format
