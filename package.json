@@ -6,15 +6,15 @@
   "license": "BSD",
   "repository": "https://github.com/Techming/web-video-canvas",
   "bugs": {
-    "url": "https://github.com/Techming/web-video-canvas"
+    "url": "https://github.com/Techming/web-video-canvas/issues"
   },
   "private": false,
-  "main": "/build/webvideocanvas.js",
+  "main": "./build/webvideocanvas.js",
   "files": [
-    "build/**/*"
+    "build"
   ],
   "engines": {
-    "node": ">=14.18.3"
+    "node": ">=14.0.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.19.3",

@@ -1,0 +1,8 @@
+node_modules
+webpack.config.js
+Gruntfile.js
+bower.json
+.prettierrc
+.travis.yml
+.eslintrc.json
+.babelrc
