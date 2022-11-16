@@ -2,16 +2,16 @@
   "name": "@techming/web-video-canvas",
   "homepage": "http://robotwebtools.org",
   "description": "Display a Video Stream from the ROS web_video_server Inside of a HTML5 Canvas",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "license": "BSD",
   "repository": "https://github.com/Techming/web-video-canvas",
   "bugs": {
-    "url": "https://github.com/Techming/web-video-canvas"
+    "url": "https://github.com/Techming/web-video-canvas/issues"
   },
   "private": false,
-  "main": "/build/webvideocanvas.js",
+  "main": "./build/webvideocanvas.js",
   "files": [
-    "build/**/*"
+    "build"
   ],
   "engines": {
     "node": ">=14.0.0"

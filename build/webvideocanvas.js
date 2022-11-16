@@ -2,12 +2,12 @@
 	if(typeof exports === 'object' && typeof module === 'object')
 		module.exports = factory();
 	else if(typeof define === 'function' && define.amd)
-		define([], factory);
+		define("WebVideoCanvas", [], factory);
 	else if(typeof exports === 'object')
 		exports["WebVideoCanvas"] = factory();
 	else
 		root["WebVideoCanvas"] = factory();
-})(self, () => {
+})(this, () => {
 return /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
