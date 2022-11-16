@@ -16,18 +16,18 @@ const SUPPORTED_ENCODING = ['mjpeg', 'png', 'ros_compressed'];
  */
 class Viewer extends EventEmitter2 {
   /**
-   * @param options - possible keys include:
-   *   * divID - the ID of the HTML div to place the canvas in
-   *   * width - the width of the canvas
-   *   * height - the height of the canvas
-   *   * host - the hostname of the MJPEG server
-   *   * port (optional) - the port to connect to
-   *   * quality (optional) - the quality of the stream (from 1-100)
-   *   * topic - the topic to stream, like '/wide_stereo/left/image_color'
-   *   * overlay (optional) - a canvas to overlay after the image is drawn
-   *   * refreshRate (optional) - a refresh rate in Hz
-   *   * interval (optional) - an interval time in milliseconds
-   *   * type (optional) - the encoding method for the stream, default set to mjpeg
+   * @param {Object} options - possible keys include:
+   * @param {string} options.divID - the ID of the HTML div to place the canvas in
+   * @param {number} options.width - the width of the canvas
+   * @param {number} options.height - the height of the canvas
+   * @param {string} options.host - the hostname of the MJPEG server
+   * @param {number} [options.port] (optional) - the port to connect to
+   * @param {number} [options.quality] (optional) - the quality of the stream (from 1-100)
+   * @param {string} options.topic - the topic to stream, like '/wide_stereo/left/image_color'
+   * @param {HTMLCanvasElement} [options.overlay] (optional) - a canvas to overlay after the image is drawn
+   * @param {number} [options.refreshRate] (optional) - a refresh rate in Hz
+   * @param {number} [options.interval] (optional) - an interval time in milliseconds
+   * @param {string} [options.type] (optional) - the encoding method for the stream, default set to mjpeg
    */
   constructor(options) {
     super();
@@ -100,6 +100,10 @@ class Viewer extends EventEmitter2 {
     }
   }
 
+  /**
+   * Change the stream's topic
+   * @param {string} topic - the topic to change the stream to
+   */
   changeStream(topic) {
     this.image = new Image();
     // create the image to hold the stream
