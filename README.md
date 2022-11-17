@@ -35,7 +35,7 @@ const viewer = new Viewer({
 
 ### Static Import
 
-Pre-built files can be found in [webvideocanvas.js](build/webvideocanvas.js)
+Pre-built files can be found in [webvideocanvas.js](build/webvideocanvas.js) and [webvideocanvas.min.js](build/webvideocanvas.min.js)
 
 ## Build
 
