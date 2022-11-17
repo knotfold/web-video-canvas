@@ -4,11 +4,7 @@
 
 This repo is a fork from and developed based on [mjpegcanvas](https://github.com/rctoris/mjpegcanvasjs) by [Russell Toris](https://github.com/rctoris) (russell.toris@gmail.com). Thanks for all the previous effort.
 
-**Still WIP to publish this package to ROS distro as well as ROS wiki [2022-11-15]**
-
-~~For full documentation, see [the ROS wiki](http://ros.org/wiki/mjpegcanvasjs) or check out some [working demos](http://robotwebtools.org/).~~
-
-This project is released as part of the [Robot Web Tools](http://robotwebtools.org/) effort.
+For full documentation, see [the ROS wiki](https://wiki.ros.org/web_video_canvas).
 
 ## Usage
 
