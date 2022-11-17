@@ -1,8 +1,12 @@
 const path = require('path');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = {
   target: 'web',
-  entry: path.resolve(__dirname, './src/index.js'),
+  entry: {
+    webvideocanvas: path.resolve(__dirname, './src/index.js'),
+    'webvideocanvas.min': path.resolve(__dirname, './src/index.js'),
+  },
   mode: 'production',
   module: {
     rules: [
@@ -18,7 +22,7 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, './build'),
-    filename: 'webvideocanvas.js',
+    filename: '[name].js',
     library: {
       name: 'WebVideoCanvas',
       type: 'umd',
@@ -30,6 +34,11 @@ module.exports = {
     static: path.resolve(__dirname, './build'),
   },
   optimization: {
-    minimize: false,
+    minimize: true,
+    minimizer: [
+      new UglifyJsPlugin({
+        include: /\.min\.js$/,
+      }),
+    ],
   },
 };

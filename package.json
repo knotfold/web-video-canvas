@@ -2,7 +2,7 @@
   "name": "@techming/web-video-canvas",
   "homepage": "http://robotwebtools.org",
   "description": "Display a Video Stream from the ROS web_video_server Inside of a HTML5 Canvas",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "license": "BSD",
   "repository": "https://github.com/Techming/web-video-canvas",
   "bugs": {
@@ -37,6 +37,7 @@
     "grunt-jsdoc": "~0.3.0",
     "grunt-webpack": "^5.0.0",
     "prettier": "2.7.1",
+    "uglifyjs-webpack-plugin": "^2.2.0",
     "webpack": "^5.75.0"
   },
   "keywords": [
