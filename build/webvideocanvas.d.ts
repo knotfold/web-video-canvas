@@ -1,66 +1,63 @@
 import EventEmitter2 from 'eventemitter2';
 
-declare module '@techming/web-video-canvas' {
-  interface ViewOptions {
-    divID: string;
-    width: number;
-    height: number;
-    host: string;
-    port?: number;
-    quality?: number;
-    topic: string;
-    overlay?: HTMLCanvasElement;
-    refreshRate?: number;
-    interval?: number;
-    type?: string;
-  }
+export as namespace WebVideoCanvas;
+export class Viewer extends EventEmitter2 {
+  constructor(options: WebVideoCanvas.ViewOptions);
+  width: number;
+  height: number;
+  host: string;
+  port?: number;
+  quality?: number;
+  topic: string;
+  overlay?: HTMLCanvasElement;
+  refreshRate?: number;
+  interval?: number;
+  type?: string;
+  canvas?: HTMLCanvasElement;
+  image: typeof Image;
 
-  interface MultiStreamViewerOptions {
-    divID: string;
-    width: number;
-    height: number;
-    host: string;
-    port?: number;
-    quality?: number;
-    topics: [string];
-    labels?: [string];
-    defaultStream?: number;
-  }
+  draw(): void;
+  changeStream(topic: string): void;
+}
 
-  class View extends EventEmitter2 {
-    constructor(options: ViewOptions);
-    width: number;
-    height: number;
-    host: string;
-    port?: number;
-    quality?: number;
-    topic: string;
-    overlay?: HTMLCanvasElement;
-    refreshRate?: number;
-    interval?: number;
-    type?: string;
-    canvas?: HTMLCanvasElement;
-    image: typeof Image;
+export class MultiStreamViewer extends EventEmitter2 {
+  constructor(options: WebVideoCanvas.MultiStreamViewerOptions);
+  divID: string;
+  width: number;
+  height: number;
+  host: string;
+  port?: number;
+  quality?: number;
+  topics: [string];
+  labels?: [string];
+  defaultStream?: number;
 
-    draw(): void;
-    changeStream(topic: string): void;
-  }
+  clearButton(): void;
+  fadeImage(): void;
+}
 
-  class MultiStreamViewer extends EventEmitter2 {
-    constructor(options: MultiStreamViewerOptions);
-    divID: string;
-    width: number;
-    height: number;
-    host: string;
-    port?: number;
-    quality?: number;
-    topics: [string];
-    labels?: [string];
-    defaultStream?: number;
+export interface ViewOptions {
+  divID: string;
+  width: number;
+  height: number;
+  host: string;
+  port?: number;
+  quality?: number;
+  topic: string;
+  overlay?: HTMLCanvasElement;
+  refreshRate?: number;
+  interval?: number;
+  type?: string;
+}
 
-    clearButton(): void;
-    fadeImage(): void;
-  }
-
-  export { View, MultiStreamViewer };
+export interface MultiStreamViewerOptions {
+  divID: string;
+  width: number;
+  height: number;
+  host: string;
+  port?: number;
+  quality?: number;
+  topics: [string];
+  labels?: [string];
+  defaultStream?: number;
 }

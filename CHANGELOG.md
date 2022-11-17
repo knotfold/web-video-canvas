@@ -2,6 +2,11 @@
 
 For change log from mjpegcanvas, please refer to: https://github.com/rctoris/mjpegcanvasjs/blob/develop/CHANGELOG.md
 
+2022-11-17 - **0.1.5**
+
+- Fix type declaration
+- Update README with link to ROS Wiki
+
 2022-11-16 - **0.1.4**
 
 - Added type support
