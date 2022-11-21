@@ -25,8 +25,8 @@ class Viewer extends EventEmitter2 {
    * @param {number} [options.quality] (optional) - the quality of the stream (from 1-100)
    * @param {string} options.topic - the topic to stream, like '/wide_stereo/left/image_color'
    * @param {HTMLCanvasElement} [options.overlay] (optional) - a canvas to overlay after the image is drawn
-   * @param {number} [options.refreshRate] (optional) - a refresh rate in Hz
-   * @param {number} [options.interval] (optional) - an interval time in milliseconds
+   * @param {number} [options.refreshRate] (optional) - a refresh rate in Hz, will be converted into milliseconds and take max value between refreshRate and interval
+   * @param {number} [options.interval] (optional) - an interval time in milliseconds, will take max value between refreshRate and interval
    * @param {boolean} [options.invert] (optional) - if the images are mirrored
    * @param {string} [options.type] (optional) - the encoding method for the stream, default set to mjpeg
    * @param {string} [options.src] (optional) - the source URL for the images, passing values will override other params (host, port, quality, etc)
