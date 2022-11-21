@@ -47,7 +47,9 @@ export interface ViewOptions {
   overlay?: HTMLCanvasElement;
   refreshRate?: number;
   interval?: number;
+  invert?: boolean;
   type?: string;
+  source?: string;
 }
 
 export interface MultiStreamViewerOptions {

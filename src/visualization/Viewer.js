@@ -27,7 +27,9 @@ class Viewer extends EventEmitter2 {
    * @param {HTMLCanvasElement} [options.overlay] (optional) - a canvas to overlay after the image is drawn
    * @param {number} [options.refreshRate] (optional) - a refresh rate in Hz
    * @param {number} [options.interval] (optional) - an interval time in milliseconds
+   * @param {boolean} [options.invert] (optional) - if the images are mirrored
    * @param {string} [options.type] (optional) - the encoding method for the stream, default set to mjpeg
+   * @param {string} [options.src] (optional) - the source URL for the images, passing values will override other params (host, port, quality, etc)
    */
   constructor(options) {
     super();
@@ -43,6 +45,7 @@ class Viewer extends EventEmitter2 {
     this.topic = options.topic;
     this.overlay = options.overlay;
     this.type = options.type;
+    this.src = options.src;
 
     // create no image initially
     this.image = new Image();
@@ -107,21 +110,26 @@ class Viewer extends EventEmitter2 {
   changeStream(topic) {
     this.image = new Image();
     // create the image to hold the stream
-    let src =
-      'http://' + this.host + ':' + this.port + '/stream?topic=' + topic;
-    // add various options
-    src += '&width=' + this.width;
-    src += '&height=' + this.height;
-    if (this.type && SUPPORTED_ENCODING.includes(this.type)) {
-      src += '&type=' + this.type;
+    if (this.src !== undefined) {
+      this.image.src = this.src;
+    } else {
+      let src =
+        'http://' + this.host + ':' + this.port + '/stream?topic=' + topic;
+      // add various options
+      src += '&width=' + this.width;
+      src += '&height=' + this.height;
+      if (this.type && SUPPORTED_ENCODING.includes(this.type)) {
+        src += '&type=' + this.type;
+      }
+      if (this.quality > 0 && (this.type === 'mjpeg' || !this.type)) {
+        src += '&quality=' + this.quality;
+      }
+      if (this.invert) {
+        src += '&invert=' + this.invert;
+      }
+      this.image.src = src;
     }
-    if (this.quality > 0 && (this.type === 'mjpeg' || !this.type)) {
-      src += '&quality=' + this.quality;
-    }
-    if (this.invert) {
-      src += '&invert=' + this.invert;
-    }
-    this.image.src = src;
+
     // emit an event for the change
     this.emit('change', topic);
   }
