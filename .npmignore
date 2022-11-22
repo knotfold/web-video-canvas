@@ -6,3 +6,4 @@ bower.json
 .travis.yml
 .eslintrc.json
 .babelrc
+doc
