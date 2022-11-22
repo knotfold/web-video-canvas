@@ -23,8 +23,8 @@ class MultiStreamViewer extends EventEmitter2 {
    * @param {string} options.host - the hostname of the MJPEG server
    * @param {number} [options.port] (optional) - the port to connect to
    * @param {number} [options.quality] (optional) - the quality of the stream (from 1-100)
-   * @param {[string]} options.topics - an array of topics to stream
-   * @param {[string]} [options.labels] (optional) - an array of labels associated with each topic
+   * @param {Array<string>} options.topics - an array of topics to stream
+   * @param {Array<string>} [options.labels] (optional) - an array of labels associated with each topic
    * @param {number} [options.defaultStream] (optional) - the index of the default stream to use
    */
   constructor(options) {
