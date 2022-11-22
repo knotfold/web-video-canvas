@@ -18,6 +18,7 @@ class Viewer extends EventEmitter2 {
   /**
    * @param {Object} options - possible keys include:
    * @param {string} options.divID - the ID of the HTML div to place the canvas in
+   * @param {HTMLCanvasElement} [options.canvas] - (optional) the canvas to render the images to. Will override divID
    * @param {number} options.width - the width of the canvas
    * @param {number} options.height - the height of the canvas
    * @param {string} options.host - the hostname of the MJPEG server
@@ -33,7 +34,8 @@ class Viewer extends EventEmitter2 {
    */
   constructor(options) {
     super();
-    const divID = options.divID;
+    this.divID = options.divID;
+    this.canvas = options.canvas;
     this.width = options.width;
     this.height = options.height;
     this.host = options.host;
@@ -51,11 +53,17 @@ class Viewer extends EventEmitter2 {
     this.image = new Image();
 
     // create the canvas to render to
-    this.canvas = document.createElement('canvas');
-    this.canvas.width = this.width;
-    this.canvas.height = this.height;
-    this.canvas.style.background = '#aaaaaa';
-    document.getElementById(divID).appendChild(this.canvas);
+    if (this.canvas === undefined) {
+      this.canvas = document.createElement('canvas');
+      this.canvas.width = this.width;
+      this.canvas.height = this.height;
+      this.canvas.style.background = '#000000';
+      document.getElementById(this.divID).appendChild(this.canvas);
+    } else {
+      this.canvas.width = this.width;
+      this.canvas.height = this.height;
+      this.canvas.style.background = '#000000';
+    }
 
     const drawInterval = Math.max((1 / this.refreshRate) * 1000, this.interval);
 
