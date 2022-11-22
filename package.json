@@ -3,7 +3,7 @@
   "homepage": "http://robotwebtools.org",
   "description": "Display a Video Stream from the ROS web_video_server Inside of a HTML5 Canvas",
   "version": "0.1.5",
-  "license": "BSD",
+  "license": "BSD-3-Clause",
   "repository": "https://github.com/Techming/web-video-canvas",
   "bugs": {
     "url": "https://github.com/Techming/web-video-canvas/issues"
