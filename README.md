@@ -4,6 +4,8 @@
 
 This repo is a fork from and developed based on [mjpegcanvas](https://github.com/rctoris/mjpegcanvasjs) by [Russell Toris](https://github.com/rctoris) (russell.toris@gmail.com). Thanks for all the previous effort.
 
+JSDoc can be found in [here](https://techming.github.io/web-video-canvas). 
+
 For full documentation, see [the ROS wiki](https://wiki.ros.org/web_video_canvas).
 
 ## Usage
