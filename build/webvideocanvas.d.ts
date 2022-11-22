@@ -3,17 +3,19 @@ import EventEmitter2 from 'eventemitter2';
 export as namespace WebVideoCanvas;
 export class Viewer extends EventEmitter2 {
   constructor(options: WebVideoCanvas.ViewOptions);
+  divID: string;
   width: number;
   height: number;
   host: string;
-  port?: number;
+  port: number;
   quality?: number;
   topic: string;
   overlay?: HTMLCanvasElement;
-  refreshRate?: number;
-  interval?: number;
+  canvas: HTMLCanvasElement;
+  refreshRate: number;
+  interval: number;
   type?: string;
-  canvas?: HTMLCanvasElement;
+  src: string;
   image: typeof Image;
 
   draw(): void;
@@ -38,6 +40,7 @@ export class MultiStreamViewer extends EventEmitter2 {
 
 export interface ViewOptions {
   divID: string;
+  canvas?: HTMLCanvasElement;
   width: number;
   height: number;
   host: string;
@@ -47,7 +50,9 @@ export interface ViewOptions {
   overlay?: HTMLCanvasElement;
   refreshRate?: number;
   interval?: number;
+  invert?: boolean;
   type?: string;
+  src?: string;
 }
 
 export interface MultiStreamViewerOptions {
