@@ -2669,9 +2669,11 @@ class Viewer extends (eventemitter2_default()) {
    * @param {number} [options.quality] (optional) - the quality of the stream (from 1-100)
    * @param {string} options.topic - the topic to stream, like '/wide_stereo/left/image_color'
    * @param {HTMLCanvasElement} [options.overlay] (optional) - a canvas to overlay after the image is drawn
-   * @param {number} [options.refreshRate] (optional) - a refresh rate in Hz
-   * @param {number} [options.interval] (optional) - an interval time in milliseconds
+   * @param {number} [options.refreshRate] (optional) - a refresh rate in Hz, will be converted into milliseconds and take max value between refreshRate and interval
+   * @param {number} [options.interval] (optional) - an interval time in milliseconds, will take max value between refreshRate and interval
+   * @param {boolean} [options.invert] (optional) - if the images are mirrored
    * @param {string} [options.type] (optional) - the encoding method for the stream, default set to mjpeg
+   * @param {string} [options.src] (optional) - the source URL for the images, passing values will override other params (host, port, quality, etc)
    */
   constructor(options) {
     super();
@@ -2687,6 +2689,7 @@ class Viewer extends (eventemitter2_default()) {
     this.topic = options.topic;
     this.overlay = options.overlay;
     this.type = options.type;
+    this.src = options.src;
 
     // create no image initially
     this.image = new Image();
@@ -2744,20 +2747,25 @@ class Viewer extends (eventemitter2_default()) {
   changeStream(topic) {
     this.image = new Image();
     // create the image to hold the stream
-    let src = 'http://' + this.host + ':' + this.port + '/stream?topic=' + topic;
-    // add various options
-    src += '&width=' + this.width;
-    src += '&height=' + this.height;
-    if (this.type && SUPPORTED_ENCODING.includes(this.type)) {
-      src += '&type=' + this.type;
+    if (this.src !== undefined) {
+      this.image.src = this.src;
+    } else {
+      let src = 'http://' + this.host + ':' + this.port + '/stream?topic=' + topic;
+      // add various options
+      src += '&width=' + this.width;
+      src += '&height=' + this.height;
+      if (this.type && SUPPORTED_ENCODING.includes(this.type)) {
+        src += '&type=' + this.type;
+      }
+      if (this.quality > 0 && (this.type === 'mjpeg' || !this.type)) {
+        src += '&quality=' + this.quality;
+      }
+      if (this.invert) {
+        src += '&invert=' + this.invert;
+      }
+      this.image.src = src;
     }
-    if (this.quality > 0 && (this.type === 'mjpeg' || !this.type)) {
-      src += '&quality=' + this.quality;
-    }
-    if (this.invert) {
-      src += '&invert=' + this.invert;
-    }
-    this.image.src = src;
+
     // emit an event for the change
     this.emit('change', topic);
   }
