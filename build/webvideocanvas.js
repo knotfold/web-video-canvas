@@ -2747,9 +2747,7 @@ class Viewer extends (eventemitter2_default()) {
   changeStream(topic) {
     this.image = new Image();
     // create the image to hold the stream
-    if (this.src !== undefined) {
-      this.image.src = this.src;
-    } else {
+    if (this.src === undefined) {
       let src = 'http://' + this.host + ':' + this.port + '/stream?topic=' + topic;
       // add various options
       src += '&width=' + this.width;
@@ -2763,8 +2761,9 @@ class Viewer extends (eventemitter2_default()) {
       if (this.invert) {
         src += '&invert=' + this.invert;
       }
-      this.image.src = src;
+      this.src = src;
     }
+    this.image.src = this.src;
 
     // emit an event for the change
     this.emit('change', topic);
