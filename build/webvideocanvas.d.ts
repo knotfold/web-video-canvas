@@ -6,14 +6,15 @@ export class Viewer extends EventEmitter2 {
   width: number;
   height: number;
   host: string;
-  port?: number;
+  port: number;
   quality?: number;
   topic: string;
   overlay?: HTMLCanvasElement;
-  refreshRate?: number;
-  interval?: number;
+  canvas: HTMLCanvasElement;
+  refreshRate: number;
+  interval: number;
   type?: string;
-  canvas?: HTMLCanvasElement;
+  src: string;
   image: typeof Image;
 
   draw(): void;
@@ -49,7 +50,7 @@ export interface ViewOptions {
   interval?: number;
   invert?: boolean;
   type?: string;
-  source?: string;
+  src?: string;
 }
 
 export interface MultiStreamViewerOptions {
