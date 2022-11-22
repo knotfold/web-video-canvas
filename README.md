@@ -1,4 +1,4 @@
-# web-video-canvas [![Build Status](https://app.travis-ci.com/Techming/web-video-canvas.svg?branch=develop)](https://app.travis-ci.com/github/Techming/web-video-canvas) [![NPM Version](https://img.shields.io/npm/v/@techming/web-video-canvas)](https://www.npmjs.com/package/@techming/web-video-canvas) ![License](https://img.shields.io/npm/l/@techming/web-video-canvas)
+# web-video-canvas [![Build Status](https://img.shields.io/github/workflow/status/techming/web-video-canvas/CI)](https://github.com/Techming/web-video-canvas/actions) [![NPM Version](https://img.shields.io/npm/v/@techming/web-video-canvas)](https://www.npmjs.com/package/@techming/web-video-canvas) ![License](https://img.shields.io/npm/l/@techming/web-video-canvas)
 
 **Display a Video Stream from the ROS web_video_server Inside of a HTML5 Canvas**
 
