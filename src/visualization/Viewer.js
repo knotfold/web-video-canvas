@@ -142,6 +142,9 @@ class Viewer extends EventEmitter2 {
     this.emit('change', topic);
   }
 
+  /**
+   * Remove interval and image src to close HTTP connection.
+   */
   unmount() {
     clearInterval(this.timer);
     this.image.src = '';
