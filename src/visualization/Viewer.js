@@ -71,7 +71,7 @@ class Viewer extends EventEmitter2 {
     this.changeStream(this.topic);
 
     // call draw with the given interval or rate
-    setInterval(this.draw.bind(this), drawInterval);
+    this.timer = setInterval(this.draw.bind(this), drawInterval);
   }
 
   /**
@@ -140,6 +140,11 @@ class Viewer extends EventEmitter2 {
 
     // emit an event for the change
     this.emit('change', topic);
+  }
+
+  unmount() {
+    clearInterval(this.timer);
+    this.image.src = '';
   }
 }
 
