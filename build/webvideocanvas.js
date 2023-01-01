@@ -2714,7 +2714,7 @@ class Viewer extends (eventemitter2_default()) {
     this.changeStream(this.topic);
 
     // call draw with the given interval or rate
-    setInterval(this.draw.bind(this), drawInterval);
+    this.timer = setInterval(this.draw.bind(this), drawInterval);
   }
 
   /**
@@ -2775,6 +2775,10 @@ class Viewer extends (eventemitter2_default()) {
 
     // emit an event for the change
     this.emit('change', topic);
+  }
+  unmount() {
+    clearInterval(this.timer);
+    this.image.src = '';
   }
 }
 /* harmony default export */ const visualization_Viewer = (Viewer);
