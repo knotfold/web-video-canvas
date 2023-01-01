@@ -2,6 +2,8 @@
 
 For change log from mjpegcanvas, please refer to: https://github.com/rctoris/mjpegcanvasjs/blob/develop/CHANGELOG.md
 
+For change log starting from version 0.1.6, please refer to the [release page](https://github.com/Techming/web-video-canvas/releases).
+
 2022-11-17 - **0.1.5**
 
 - Fix type declaration
