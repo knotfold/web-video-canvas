@@ -39,7 +39,7 @@ class Viewer extends EventEmitter2 {
     this.width = options.width;
     this.height = options.height;
     this.host = options.host;
-    this.port = options.port || 8080;
+    this.port = options.port;
     this.quality = options.quality;
     this.refreshRate = options.refreshRate || 10;
     this.interval = options.interval || 30;
@@ -48,7 +48,7 @@ class Viewer extends EventEmitter2 {
     this.overlay = options.overlay;
     this.type = options.type;
     this.src = options.src;
-
+    this.ssl = options.ssl || false;
     // create no image initially
     this.image = new Image();
 
@@ -119,8 +119,8 @@ class Viewer extends EventEmitter2 {
     this.image = new Image();
     // create the image to hold the stream
     if (this.src === undefined) {
-      let src =
-        'http://' + this.host + ':' + this.port + '/stream?topic=' + topic;
+      let src;
+      src = (this.ssl ? 'https://' : 'http://') + this.host + (this.port ? ':' + this.port : '') + '/stream?topic=' + topic;
       // add various options
       src += '&width=' + this.width;
       src += '&height=' + this.height;
