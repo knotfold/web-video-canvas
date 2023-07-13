@@ -16,6 +16,7 @@ export class Viewer extends EventEmitter2 {
   interval: number;
   type?: string;
   src: string;
+  ssl?: boolean;
   image: typeof Image;
 
   draw(): void;
@@ -53,6 +54,7 @@ export interface ViewOptions {
   invert?: boolean;
   type?: string;
   src?: string;
+  ssl?:boolean;
 }
 
 export interface MultiStreamViewerOptions {
