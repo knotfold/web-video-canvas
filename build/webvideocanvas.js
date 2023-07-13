@@ -2755,6 +2755,7 @@
             this.canvas.width = this.width;
             this.canvas.height = this.height;
             this.canvas.style.background = '#000000';
+            document.getElementById(this.divID).replaceChildren();
             document.getElementById(this.divID).appendChild(this.canvas);
           } else {
             this.canvas.width = this.width;
